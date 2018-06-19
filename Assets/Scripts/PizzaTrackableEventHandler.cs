@@ -107,6 +107,13 @@ public class PizzaTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 
     protected virtual void OnTrackingLost()
     {
+        var rendererComponents = GetComponentsInChildren<Renderer>(true);
+        
+        // Enable rendering:
+        foreach (var component in rendererComponents)
+            component.enabled = false;
+
+        //Trigger our event    
         OnTrackingLostEvent.Invoke();
     }
 
