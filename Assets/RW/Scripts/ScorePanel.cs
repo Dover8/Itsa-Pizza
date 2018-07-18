@@ -40,6 +40,7 @@ public class ScorePanel : MonoBehaviour {
 
 	public void ScoreRound(int score)
 	{
+		CancelInvoke();
 		finalScorePanel.SetActive(false);
 		gameObject.SetActive(true);
 

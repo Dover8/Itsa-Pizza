@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour {
 
 	public IntEvent onGameComplete;
 
+	public UnityEvent onGameRestart;
+
 	/// <summary>
 	/// Start is called on the frame when a script is enabled just before
 	/// any of the Update methods is called the first time.
@@ -70,7 +72,7 @@ public class GameManager : MonoBehaviour {
 		if (instance == null)
 		{
 			instance = this;
-			Init();
+			ResartGame();
 		}
 		else
 		{
@@ -162,5 +164,11 @@ public class GameManager : MonoBehaviour {
 		totalScore += accumulatedScore[1]*1;
 
 		onGameComplete.Invoke(totalScore);
+	}
+
+	public void ResartGame()
+	{
+		onGameRestart.Invoke();
+		Init();
 	}
 }
